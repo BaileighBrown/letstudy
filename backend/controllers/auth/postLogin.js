@@ -31,4 +31,6 @@ return res.status(400).send('invalid credentials. try again ')
    }
 };
 
+//at this point register and login routes are working on postman 
+
 module.exports = postLogin;

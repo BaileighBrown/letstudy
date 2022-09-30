@@ -1,6 +1,7 @@
 
 const User = require('../../models/user');
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const postRegister = async (req, res) => {
    try {
@@ -27,13 +28,24 @@ const user = await User.create({
 });
 
 //create JWT token
-const token = 'JWT Token';
+const token = jwt.sign(
+    {
+        userId: user._id,   //getting the _id from the mongo databse bc ever new document has one 
+        mail
+    },
+
+    //secret 
+    process.env.TOKEN_KEY,
+    {
+        expiresIn: '24h'
+    }
+);
 
 //once user is created send this recognition to user, json formatting 
 res.status(201).json({ 
     userDetails: { 
     mail: user.mail, 
-    token:token, 
+    token: token, 
     username: user.username,
 
     }

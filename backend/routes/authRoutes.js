@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authControllers = require("../controllers/auth/authControllers");
-
+const auth = require("../middleware/auth")
 //validate if correct data has been sent 
 //joi allows makes validating javascript objects easy 
 const Joi = require("joi");
@@ -40,13 +40,19 @@ const loginSchema = Joi.object({
     .required(),
 })
 
+//authentication routes 
+
 router.post("/register", validator.body(registerSchema), authControllers.controllers.postRegister);
 
 router.post("/login", validator.body(loginSchema), authControllers.controllers.postLogin); 
 // first user route to login in, then validator, if not validated in cannot go to post login 
 
 
-//test route 
+//test route to verify if middleware is working 
+router.get('/test', auth, (req, res)=>{
+    res.send('request passed')
+});
+
 
 
 module.exports = router;

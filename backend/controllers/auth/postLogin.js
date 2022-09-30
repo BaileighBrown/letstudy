@@ -12,7 +12,18 @@ const user = await User.findOne({ mail: mail.toLowerCase() });
 //if the user is found 
 if(user && (await bcrypt.compare(password, user.password) )){
     // send new token 
-    const token = "JWT_TOKEN";
+    const token = jwt.sign(
+        {
+            userId: user._id,   //getting the _id from the mongo databse bc ever new document has one 
+            mail
+        },
+    
+        //secret 
+        process.env.TOKEN_KEY,
+        {
+            expiresIn: '24h'
+        }
+    );
 
     return res.status(200).json({ 
         userDetails: { 

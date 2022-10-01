@@ -17,7 +17,7 @@ export const openAlertMessage = (content) => {
     }
 }
 
-export const closeAlertMessage = (content) => {
+export const closeAlertMessage = () => {
     return {
         type: alertActions.CLOSE_ALERT_MESSAGE,
 

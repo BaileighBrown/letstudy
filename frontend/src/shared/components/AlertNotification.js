@@ -8,33 +8,32 @@ const AlertNotification = ({
     showAlertMessage,
     closeAlertMessage,
     alertMessageContent,
-}) => {
-  return (
-    <div>
-        <Snackbar
-        anchorOrigin={{vertical: 'bottom', horizontal: 'center'}}
+  }) => {
+    return (
+      <Snackbar
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={showAlertMessage}
         onClose={closeAlertMessage}
         autoHideDuration={6000}
-        
-        >
-            <Alert severity="info">{alertMessageContent}</Alert>
-        </Snackbar>
-    </div>
-  );
-};
-
-//creating functions to get store state 
-const mapStoreStateToProps = ({ alert }) =>{
+      >
+        <Alert severity="info">{alertMessageContent}</Alert>
+      </Snackbar>
+    );
+  };
+  
+  const mapStoreStateToProps = ({ alert }) => {
     return {
-        ...alert,
-    }
-}
-
-const mapActionsToProps = (dispatch) => {
+      ...alert,
+    };
+  };
+  
+  const mapActionsToProps = (dispatch) => {
     return {
-        ...getActions(dispatch)
-    }
-}
-
-export default connect(mapStoreStateToProps, mapActionsToProps)(AlertNotification)
+      ...getActions(dispatch),
+    };
+  };
+  
+  export default connect(
+    mapStoreStateToProps,
+    mapActionsToProps
+  )(AlertNotification);

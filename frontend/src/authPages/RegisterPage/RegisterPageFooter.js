@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { Tooltip } from "@mui/material"
 
 const getFormNotValidMessage = () =>{
-    return "Username should contain between 3 and 12 characters and password should contain 6 and 12 characters";
+    return "Username should contain between 3 and 12 characters and password should contain between 6 and 12 characters";
     }
     
     const getFormValidMessage = () =>{

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./Pomodoro.css"
 
 class Pomodoro extends React.Component {
     constructor(props) {
@@ -165,3 +166,5 @@ class Pomodoro extends React.Component {
   
   export default Pomodoro;
   
+  const rootElement = document.getElementById("root");
+ReactDOM.render(<Pomodoro />, rootElement);

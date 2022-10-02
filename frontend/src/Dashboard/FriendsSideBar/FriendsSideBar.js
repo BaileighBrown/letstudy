@@ -2,6 +2,9 @@ import React from 'react'
 import { styled } from '@mui/system'
 import AddFriendButton from './AddFriendButton'
 import Pomodoro from '../Pomodoro/Pomodoro'
+import FriendsTitle from './FriendsTitle'
+import FriendsList from './FriendsList/FriendsList'
+import PendingInvitationsList from './PendingInvitationList/PendingInvitationsList'
 
 const MainContainer = styled('div')({
     width: '224px',
@@ -16,6 +19,10 @@ const FriendsSideBar = () => {
   return (
     <MainContainer>
     <AddFriendButton /> 
+    <FriendsTitle title='Private Messages' />
+    <FriendsList />
+    <FriendsTitle title='Invitations' />
+    <PendingInvitationsList />
     <Pomodoro />
     </MainContainer>
   )

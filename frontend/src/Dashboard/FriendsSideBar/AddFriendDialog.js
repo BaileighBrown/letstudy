@@ -61,6 +61,7 @@ const AddFriendDialog = ({
               marginBottom: "10px",
             }}
           />
+
         </DialogActions>
       </Dialog>
     </div>

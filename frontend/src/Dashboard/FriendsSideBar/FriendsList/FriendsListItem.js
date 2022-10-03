@@ -3,6 +3,7 @@ import Button from '@mui/material/Button'
 //import { Avatar } from '@mui/material'
 import Avatar from '../../../shared/components/Avatar'
 import { Typography } from '@mui/material'
+import OnlineIndicator from './OnlineIndicator'
 
 
 const FriendsListItem = ({ id, username, isOnline }) => {
@@ -35,6 +36,7 @@ const FriendsListItem = ({ id, username, isOnline }) => {
             >
                 {username}
             </Typography>
+            {isOnline && <OnlineIndicator />}
 
     </Button>
   )

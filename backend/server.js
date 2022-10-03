@@ -11,6 +11,8 @@ require('dotenv').config();
 //definig port number
 const PORT = process.env.PORT || process.env.API_PORT;
 
+// socket server 
+const socketServer = require('./socketServer');
 //define that an express application is being created
 const app = express();
 const authRoutes = require('./routes/authRoutes')
@@ -23,6 +25,7 @@ app.use(cors());
 app.use('/api/auth', authRoutes);
 
 const server = http.createServer(app);
+socketServer.registerSocektServer(server)
 
 //connecting to mongo atlas database, if connects successfully it will console listen on port 
 mongoose.connect(process.env.MONGO_URI)

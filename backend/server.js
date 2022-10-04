@@ -16,6 +16,7 @@ const socketServer = require('./socketServer');
 //define that an express application is being created
 const app = express();
 const authRoutes = require('./routes/authRoutes')
+const friendInvitationRoutes = require('./routes/friendInvitationRoutes')
 
 //middleware , express.json parses incoming JSON requests and puts the parsed data in req.body bc u are sending data. think about a twitter post
 app.use(express.json());
@@ -23,9 +24,10 @@ app.use(cors());
 
 //register the routes with
 app.use('/api/auth', authRoutes);
+app.use('/api/friend-invitation', friendInvitationRoutes);
 
 const server = http.createServer(app);
-socketServer.registerSocektServer(server)
+socketServer.registerSocketServer(server)
 
 //connecting to mongo atlas database, if connects successfully it will console listen on port 
 mongoose.connect(process.env.MONGO_URI)

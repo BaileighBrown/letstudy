@@ -7,6 +7,7 @@ import AppBar from "./AppBar/AppBar";
 import { logout } from "../shared/utils/auth";
 import { connect } from "react-redux";
 import { getActions } from "../store/actions/authActions";
+import { connectWithSocketServer } from "../realtimeCommunication/socketConnection";
 
 const Wrapper = styled("div")({
   width: "100%",
@@ -14,6 +15,7 @@ const Wrapper = styled("div")({
   display: "flex",
 });
 
+//cheack if user details exist, if token is in local storage it will go in store, then connect with socket.io server
 const Dashboard = ({ setUserDetails }) => {
   useEffect(() => {
     const userDetails = localStorage.getItem("user");
@@ -22,6 +24,7 @@ const Dashboard = ({ setUserDetails }) => {
       logout();
     } else {
       setUserDetails(JSON.parse(userDetails));
+      connectWithSocketServer(JSON.parse(userDetails));
     }
   }, []);
 

@@ -168,3 +168,5 @@ class Pomodoro extends React.Component {
   
   const rootElement = document.getElementById("root");
 ReactDOM.render(<Pomodoro />, rootElement);
+
+// note reactrender in the chrome xonsole is having issues 

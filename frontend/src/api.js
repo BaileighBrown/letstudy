@@ -46,9 +46,23 @@ export const register = async (data) => {
 };
 
 //secure routes for only the returned tokens are correct
+export const sendFriendInvitation = async (data) => {
+    try {
+        return await apiClient.post('./friend-invitation/invite', data)
+    } catch (exception) {
+        checkResponseCode(exception);
+        return {
+            error: true,
+            exception,
+        }
+    }
+}
+
+
 const checkResponseCode = (exception) => {
     const responseCode = exception?.response?.status;
 
+    //if user gets this response it means their token is not valid 
     if (responseCode){
         (responseCode === 401 || responseCode === 403) && logout();
     }

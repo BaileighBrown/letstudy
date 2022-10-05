@@ -19,18 +19,28 @@ const registerSocketServer = (server)=>{
         authSocket(socket,next);
     })
 
+    const emitOnlineUsers = () => {
+        const onlineUsers = serverStore.getOnlineUsers();
+        io.emit("online-users", { onlineUsers });
+      };
+
 //if its successful the io is handled with a connection event 
     io.on('connection',(socket)=>{
         console.log('user connected');//if a user connects 
         console.log(socket.id); // log user with socket id then passed to new connectuon handler 
 
         newConnectionHandler(socket, io)
+        emitOnlineUsers();
         //new connection handler which is responsible for saving information of info on the server 
 
         socket.on('disconnect',()=>{
             disconnectHandler(socket)
         })
     })
+    //excuting the online user on client side 
+    setInterval(() => {
+        emitOnlineUsers();
+      }, [1000 * 8]); //every 8 seconds
 }
 
 module.exports = {

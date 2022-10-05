@@ -1,34 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { Tooltip, Typography, Box } from "@mui/material";
 import Avatar from "../../../shared/components/Avatar";
+import InvitationDecisionButtons from "./InvitationDecisionButtons";
 import { connect } from "react-redux";
-//import { getActions } from '../../store/actions/authActions';
-import InvitationDescisionButtons from './InvitationDescisionButtons';
-
+import { getActions } from "../../../store/actions/friendsActions";
 
 const PendingInvitationsListItem = ({
-    id,
-    username,
-    mail,
-    acceptFriendInvitation = () => {},
-    rejectFriendInvitation = () => {},
-
+  id,
+  username,
+  mail,
+  acceptFriendInvitation = () => {},
+  rejectFriendInvitation = () => {},
 }) => {
+  const [buttonsDisabled, setButtonsDisabled] = useState(false);
 
-    const [buttonsDisabled, setButtonsDisabled] = useState(false);
+  const handleAcceptInvitation = () => {
+    console.log(id);
+    acceptFriendInvitation({ id });
+    setButtonsDisabled(true);
+  };
 
-    const handleAcceptInvitation = () => {
-        acceptFriendInvitation({ id });
-        setButtonsDisabled(true);
-      };
-    
-      const handleRejectInvitation = () => {
-        rejectFriendInvitation({ id });
-        setButtonsDisabled(true);
-      };
+  const handleRejectInvitation = () => {
+    console.log(id);
+    rejectFriendInvitation({ id });
+    setButtonsDisabled(true);
+  };
 
   return (
-   <Tooltip title={mail}>
+    <Tooltip title={mail}>
       <div style={{ width: "100%" }}>
         <Box
           sx={{
@@ -52,7 +51,7 @@ const PendingInvitationsListItem = ({
           >
             {username}
           </Typography>
-          <InvitationDescisionButtons
+          <InvitationDecisionButtons
             disabled={buttonsDisabled}
             acceptInvitationHandler={handleAcceptInvitation}
             rejectInvitationHandler={handleRejectInvitation}
@@ -65,10 +64,8 @@ const PendingInvitationsListItem = ({
 
 const mapActionsToProps = (dispatch) => {
   return {
-    //...getActions(dispatch),
+    ...getActions(dispatch),
   };
 };
-export default connect(
-    null,
-    mapActionsToProps
-  )(PendingInvitationsListItem);
+
+export default connect(null, mapActionsToProps)(PendingInvitationsListItem);

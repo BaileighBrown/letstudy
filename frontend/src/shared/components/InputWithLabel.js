@@ -13,7 +13,7 @@ width: '100%',
 
 const Label = styled('p')({ 
 
-    color: '#b9bbbe',
+    color: 'black',
     textTransform: 'uppercase', 
     fontWeight: '600',
     fontSize: '16px'

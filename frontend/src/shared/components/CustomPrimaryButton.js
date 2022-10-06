@@ -7,7 +7,7 @@ const CustomPrimaryButton = ({ label, additionalStyles, disabled, onClick }) => 
     
     variant='contained'
     sx={{ 
-        bgcolor:'#5865F2',
+        bgcolor:'#AEC6CF',
         color:'white',
         textTransform:'none',
         fontSize:'16px',

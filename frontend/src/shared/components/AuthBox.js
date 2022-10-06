@@ -8,7 +8,8 @@ const BoxWrapper = styled('div')({
     display: 'flex',
     alignItems: 'center',
     justifyContent:'center',
-    background:'#5865F2'
+    background: 'repeating-linear-gradient(white, white 25px, #9198e5 26px,#9198e5 27px)',
+    backgroundSize: 'cover',
 })
 
 const AuthBox = (props) => {
@@ -19,9 +20,9 @@ const AuthBox = (props) => {
             sx={{
                 width: '700px',
                 height:'400px',
-                bgcolor: '#36393f',
+                bgcolor: '#f0e9a0',
                 borderRadius:'5px',
-                boxShadow:'0 2px 10px 0 rgb(0 0 0 / 20%)', 
+                boxShadow:'0 10px 10px 2px rgba(0,0,0,0.3)', 
                 display: 'flex',
                 flexDirection:'column',
                 padding: '25px'

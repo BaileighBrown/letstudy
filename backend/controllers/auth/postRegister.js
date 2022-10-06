@@ -47,6 +47,7 @@ res.status(201).json({
     mail: user.mail, 
     token: token, 
     username: user.username,
+    _id: user._id,
 
     }
 })

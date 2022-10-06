@@ -2,7 +2,6 @@ const User = require('../../models/user')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-
 const postLogin = async (req, res) => {
    try {
 const { mail, password } = req.body;
@@ -30,6 +29,7 @@ if(user && (await bcrypt.compare(password, user.password) )){
             mail:user.mail, 
             token:token,
             username:user.username,
+            _id: user._id,
         },
     });
 }

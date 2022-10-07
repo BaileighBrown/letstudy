@@ -5,10 +5,10 @@ const initState = {
   isUserRoomCreator: false,
   roomDetails: null,
   activeRooms: [],
-  localStream: null, //webRtc streams
-  remoteStreams: [], //establish connection needs to keep render elements
+  localStream: null,
+  remoteStreams: [],
   audioOnly: false,
-  screenSharingStream: null, //screen sharing
+  screenSharingStream: null,
   isScreenSharingActive: false,
   isUserJoinedWithOnlyAudio: false,
 };

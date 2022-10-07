@@ -73,7 +73,7 @@ const addNewActiveRoom = (userId, socketId) => {
 };
 
 const getActiveRooms = () => {
-  return [...activeRooms];
+  return [...activeRooms]; //spread operator lets the qualities be copied into array
 };
 
 const getActiveRoom = (roomId) => {

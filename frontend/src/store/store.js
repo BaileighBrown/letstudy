@@ -6,6 +6,7 @@ import authReducer from './reducers/authReducer';
 import alertreducer from './reducers/alertReducer';
 import friendsReducer from './reducers/friendsReducer';
 import chatReducer from './reducers/chatReducer';
+import roomReducer from "./reducers/roomReducer";
 
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     alert:alertreducer,
     friends:friendsReducer,
     chat:chatReducer,
+    room: roomReducer,
 });
 
 const store = createStore(

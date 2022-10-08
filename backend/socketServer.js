@@ -62,6 +62,7 @@ const registerSocketServer = (server) => {
       roomInitializeConnectionHandler(socket, data);
     });
 
+    //eschagning ssignalling data
     socket.on("conn-signal", (data) => {
       roomSignalingDataHandler(socket, data);
     });

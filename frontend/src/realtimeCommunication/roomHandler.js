@@ -35,7 +35,7 @@ export const updateActiveRooms = (data) => {
   const friends = store.getState().friends.friends;
   const rooms = [];
 
-  const userId = store.getState().auth.userDetails?._id;
+  const userId = store.getState().auth.userDetails?._id; //getting userId from userDetails
 
   activeRooms.forEach((room) => {
     const isRoomCreatedByMe = room.roomCreator.userId === userId;
@@ -82,6 +82,7 @@ export const leaveRoom = () => {
     store.dispatch(setScreenSharingStream(null));
   }
 
+  //f = friend 
   store.dispatch(setRemoteStreams([]));
   webRTCHandler.closeAllConnections();
 

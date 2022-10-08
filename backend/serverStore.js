@@ -81,7 +81,7 @@ const getActiveRoom = (roomId) => {
     (activeRoom) => activeRoom.roomId === roomId
   );
 
-  if (activeRoom) {
+  if (activeRoom) { //if active room is found return copies of activeRoom in order to get back into same room
     return {
       ...activeRoom,
     };

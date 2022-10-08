@@ -11,7 +11,7 @@ const CreateRoomButton = ({ isUserInRoom }) => {
 
   return (
     <Button
-      disabled={isUserInRoom}
+      disabled={isUserInRoom} //button is disabled if value is true 
       onClick={createNewRoomHandler}
       style={{
         width: "48px",

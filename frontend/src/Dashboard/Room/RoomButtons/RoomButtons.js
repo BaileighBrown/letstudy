@@ -33,7 +33,7 @@ const RoomButtons = (props) => {
 
 const mapStoreStateToProps = ({ room }) => {
   return {
-    ...room,
+    ...room, //all properties from room are returned 
   };
 };
 

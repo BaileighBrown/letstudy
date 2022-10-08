@@ -1,14 +1,17 @@
-import * as React from 'react';
-//import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { IconButton } from '@mui/material';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { logout } from '../../shared/utils/auth';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import { IconButton } from "@mui/material";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { logout } from "../../shared/utils/auth";
+import { getActions } from "../../store/actions/roomActions";
+import { connect } from "react-redux";
 
-export default function BasicMenu() {
+const BasicMenu = ({ audioOnly, setAudioOnly }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -16,9 +19,13 @@ export default function BasicMenu() {
     setAnchorEl(null);
   };
 
+  const handleAudioOnlyChange = () => {
+    setAudioOnly(!audioOnly);
+  };
+
   return (
     <div>
-      <IconButton onClick={handleMenuOpen} style={{color: 'white'}}>
+      <IconButton onClick={handleMenuOpen} style={{ color: "white" }}>
         <MoreVertIcon />
       </IconButton>
       <Menu
@@ -27,12 +34,28 @@ export default function BasicMenu() {
         open={open}
         onClose={handleMenuClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          "aria-labelledby": "basic-button",
         }}
       >
         <MenuItem onClick={logout}>Logout</MenuItem>
-       
+        <MenuItem onClick={handleAudioOnlyChange}>
+          {audioOnly ? "Audio Only Enabled" : "Audio Only Disabled"}
+        </MenuItem>
       </Menu>
     </div>
   );
-}
+};
+
+const mapStoreStateToProps = ({ room }) => {
+  return {
+    ...room,
+  };
+};
+
+const mapActionsToProps = (dispatch) => {
+  return {
+    ...getActions(dispatch),
+  };
+};
+
+export default connect(mapStoreStateToProps, mapActionsToProps)(BasicMenu);

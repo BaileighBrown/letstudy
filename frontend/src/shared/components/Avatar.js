@@ -4,7 +4,7 @@ import React from 'react'
 const AvatarPreview = styled('div')({
     height: '42px',
     width: '42px',
-    backgroundColor:'#5865f2',
+    backgroundColor:'#c4a484',
     borderRadius:'42px',
     display: 'flex',
     alignItems: 'center',

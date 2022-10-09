@@ -12,10 +12,10 @@ const MainContainer = styled("div")({
 });
 
 const Input = styled("input")({
-  backgroundColor: "#2f3136",
+  backgroundColor: "#DEC19B",
   width: "98%",
   height: "44px",
-  color: "white",
+  color: "black",
   border: "none",
   borderRadius: "8px",
   fontSize: "14px",

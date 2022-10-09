@@ -14,7 +14,7 @@ const MainPageButton = () => {
         minWidth: 0,
         marginTop: "10px",
         color: "white",
-        backgroundColor: "#5865f2",
+        backgroundColor: "#BC544B",
       }}>
         <GroupsIcon />
     </Button>

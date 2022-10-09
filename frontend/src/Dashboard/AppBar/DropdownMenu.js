@@ -41,6 +41,7 @@ const BasicMenu = ({ audioOnly, setAudioOnly }) => {
         <MenuItem onClick={handleAudioOnlyChange}>
           {audioOnly ? "Audio Only Enabled" : "Audio Only Disabled"}
         </MenuItem>
+  
       </Menu>
     </div>
   );

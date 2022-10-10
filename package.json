@@ -15,9 +15,6 @@
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently":"^7.0.0"
-  },
   "bugs": {
     "url": "https://github.com/BaileighBrown/letstudy/issues"
   },

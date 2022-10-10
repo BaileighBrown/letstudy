@@ -2,10 +2,12 @@
   "name": "letstudy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "backend/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "cd backend && npm start"
+    "start": "node backend/server.js",
+    "develop": "concurrently \"cd backend && npm run start\" \"cd frontend && npm start\"",
+    "install": "cd backend && npm i && ..frontend && npm i",
+    "build": "cd frontend && npm run build"
   },
   "repository": {
     "type": "git",

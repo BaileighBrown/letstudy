@@ -29,6 +29,18 @@ app.use('/api/friend-invitation', friendInvitationRoutes);
 const server = http.createServer(app);
 socketServer.registerSocketServer(server)
 
+
+///from heroku guides https
+// Accessing the path module
+const path = require("path");
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
+
 //connecting to mongo atlas database, if connects successfully it will console listen on port 
 mongoose.connect(process.env.MONGO_URI)
 .then(() =>{

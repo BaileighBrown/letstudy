@@ -1,6 +1,7 @@
 const express = require('express');
 const http = require('http');
 
+
 //mongoose creates the connection with the database 
 const mongoose = require('mongoose');
 
@@ -21,6 +22,22 @@ const friendInvitationRoutes = require('./routes/friendInvitationRoutes')
 //middleware , express.json parses incoming JSON requests and puts the parsed data in req.body bc u are sending data. think about a twitter post
 app.use(express.json());
 app.use(cors());
+
+/////////////////////////////// hellllooooooo look here for DEPLOYMENT
+//heroku deployment 
+/*const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === 'production'){
+    app.use(express.static(path.join(__dirname1, "/frontend/build")));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname1,"frontend","build","index.html"))
+    })
+} else {
+    app.get('/',(req, res) => {
+        res.send("API is running successfully")
+    });
+}*/
+///////////////////////
 
 //register the routes with
 app.use('/api/auth', authRoutes);

@@ -2,12 +2,10 @@
   "name": "letstudy",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js",
-    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
+    "start": "cd backend && npm start"
   },
   "repository": {
     "type": "git",

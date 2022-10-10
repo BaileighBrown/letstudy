@@ -5,7 +5,7 @@
   "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "develop": "concurrently \"cd backend && npm run start\" \"cd frontend && npm start\"",
+    "develop": "concurrently \"cd backend && npm run watch\" \"cd frontend && npm start\"",
     "install": "cd backend && npm i && cd ../frontend && npm i",
     "build": "cd frontend && npm run build"
   },
@@ -15,6 +15,9 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "concurrently":"^7.0.0"
+  },
   "bugs": {
     "url": "https://github.com/BaileighBrown/letstudy/issues"
   },

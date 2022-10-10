@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/BaileighBrown/letstudy/issues"
   },
-  "homepage": "https://github.com/BaileighBrown/letstudy#readme"
+  "homepage": "https://github.com/BaileighBrown/letstudy#readme",
+  "dependencies": {
+    "concurrently": "^7.4.0"
+  }
 }

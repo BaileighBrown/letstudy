@@ -2,12 +2,16 @@
   "name": "letstudy",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "backend/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js",
-    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "cd frontend && npm run dev",
+    "install-client": "cd frontend && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "node server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start && cd frontend",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm start --prefix frontend\""
   },
   "repository": {
     "type": "git",

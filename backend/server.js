@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const path = require('path');
 
 
 //mongoose creates the connection with the database 
@@ -23,7 +24,7 @@ const friendInvitationRoutes = require('./routes/friendInvitationRoutes')
 app.use(express.json());
 app.use(cors());
 
-/////////////////////////////// hellllooooooo look here for DEPLOYMENT
+/////////////////////////////// hellllooooooo look here for DEPLOYMENT-----------------------
 //heroku deployment 
 if(process.env.NODE_ENV === 'production'){
     //set static folder

@@ -24,6 +24,15 @@ const friendInvitationRoutes = require('./routes/friendInvitationRoutes')
 app.use(express.json());
 app.use(cors());
 
+//heroku deployment 
+if(process.env.NODE_ENV === 'production'){
+    //set static folder
+    app.use(express.static(path.join(__dirname, '../frontend/build')));
+}
+app.get('*',(req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend/'));
+});
+
 //register the routes with
 app.use('/api/auth', authRoutes);
 app.use('/api/friend-invitation', friendInvitationRoutes);
@@ -44,15 +53,3 @@ server.listen(PORT, () =>{
     console.log('server not started. Connection failed');
     console.log(err);
 })
-
-//added for heorku deployment as well, possibly uneeded
-app.use(express.urlencoded({ extended:false }));
-/////////////////////////////// hellllooooooo look here for DEPLOYMENT-----------------------
-//heroku deployment 
-if(process.env.NODE_ENV === 'production'){
-    //set static folder
-    app.use(express.static(path.join(__dirname, '../frontend/build')));
-}
-app.get('*',(req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-});

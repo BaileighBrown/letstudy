@@ -30,7 +30,7 @@ if(process.env.NODE_ENV === 'production'){
     app.use(express.static(path.join(__dirname, '../frontend/build')));
 }
 app.get('*',(req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/'));
+    res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
 });
 
 //register the routes with
@@ -39,7 +39,6 @@ app.use('/api/friend-invitation', friendInvitationRoutes);
 
 const server = http.createServer(app);
 socketServer.registerSocketServer(server)
-
 
 //connecting to mongo atlas database, if connects successfully it will console listen on port 
 mongoose.connect(process.env.MONGO_URI)

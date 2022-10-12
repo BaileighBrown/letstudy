@@ -2,7 +2,6 @@ const express = require('express');
 const http = require('http');
 const path = require('path');
 
-
 //mongoose creates the connection with the database 
 const mongoose = require('mongoose');
 
@@ -34,8 +33,10 @@ app.get('*',(req, res) => {
 });
 
 //register the routes with
-app.use('/api/auth', authRoutes);
-app.use('/api/friend-invitation', friendInvitationRoutes);
+// register the routes
+app.use("/api/auth", authRoutes);
+app.use("/api/friend-invitation", friendInvitationRoutes);
+
 
 const server = http.createServer(app);
 socketServer.registerSocketServer(server)

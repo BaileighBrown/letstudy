@@ -48,7 +48,7 @@ server.listen(PORT, () =>{
     console.log(`listening on port ${PORT}`);
 });
 })
-.catch(err =>{
-    console.log('server not started. Connection failed');
-    console.log(err);
-})
+.catch((err) => {
+    console.log("database connection failed. Server not started");
+    console.error(err);
+  });

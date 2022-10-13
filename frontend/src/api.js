@@ -4,7 +4,7 @@ import axios from 'axios';
 import { logout } from './shared/utils/auth';
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:5002/api',
+    baseURL: 'https://letsstudyy.herokuapp.com/api', //used to be http://localhost:5002/api
     timeout: 1000,
 });
 

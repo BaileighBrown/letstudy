@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "backend/server.js",
+  "proxy":"http://localhost:5002",
   "scripts": {
     "start": "node backend/server.js",
     "develop": "concurrently \"cd backend && npm run watch\" \"cd frontend && npm start\"",

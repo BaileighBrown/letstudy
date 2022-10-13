@@ -42,7 +42,7 @@ const server = http.createServer(app);
 socketServer.registerSocketServer(server)
 
 //connecting to mongo atlas database, if connects successfully it will console listen on port 
-mongoose.connect(process.env.MONGO_URI)
+/*mongoose.connect(process.env.MONGO_URI)
 .then(() => {
     //starting the server
 server.listen(PORT, () =>{
@@ -52,4 +52,11 @@ server.listen(PORT, () =>{
 .catch((err) => {
     console.log("database connection failed. Server not started");
     console.error(err);
-  });
+  });*/
+
+const db = process.env.MONGO_URI
+db.once("open", () => {
+    app.listen(PORT,()=>{
+        console.log(`connected and running on ${PORT}`);
+    })
+});

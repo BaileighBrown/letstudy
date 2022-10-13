@@ -21,6 +21,7 @@ const friendInvitationRoutes = require('./routes/friendInvitationRoutes')
 
 //middleware , express.json parses incoming JSON requests and puts the parsed data in req.body bc u are sending data. think about a twitter post
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
 //heroku deployment 

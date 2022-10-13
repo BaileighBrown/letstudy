@@ -2,13 +2,13 @@
 Group study application 
 
 # Features 
-..* Messenger 
-..* Video Call (Max 4)
-..* Screen Share 
-..* Mute/turn off cam 
-..* Add Friends 
-..* Pomodoro Timer   
-..* JWT Authentication  
+* Messenger 
+* Video Call (Max 4)
+* Screen Share 
+* Mute/turn off cam 
+* Add Friends 
+* Pomodoro Timer   
+* JWT Authentication  
 
 ## Technologies 
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)

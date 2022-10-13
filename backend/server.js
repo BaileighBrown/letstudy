@@ -10,7 +10,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 //definig port number
-const PORT = process.env.PORT || process.env.API_PORT;
+const PORT = process.env.PORT || process.env.API_PORT || 5002;
 
 // socket server 
 const socketServer = require('./socketServer');
